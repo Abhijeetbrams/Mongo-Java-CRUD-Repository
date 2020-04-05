@@ -2,6 +2,7 @@ package com.Controller;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,43 +71,22 @@ public class MovieController {
 		return movieService.deleteByTitle(title);
 	}
 	
-/*	
-	
-	@DeleteMapping("/workers/{id}")
-	public ResponseEntity<Respose> delete(@PathVariable("id") int theId)
+	@GetMapping("/movies/get1")
+	List<Movie> findByCountriesIn(@RequestParam("country")List<String> countries)
 	{
-		workerService.deleteById(theId);
-		Respose response = new Respose();
-		response.setCode(HttpStatus.ACCEPTED.toString());
-		  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-		   LocalDateTime now = LocalDateTime.now();  
-		   
-		response.setDate(dtf.format(now));
-		response.setMessage("Succesfully Deleted");
-		
-		return new ResponseEntity(response,HttpStatus.ACCEPTED);
+		return movieService.findByCountriesIn(countries);
+	}
+	
+	@GetMapping("movies/title")
+	List<Movie> findByTheMoviesTitle(@RequestParam("title")String title)
+	{
+		return movieService.findByTheMoviesTitle(title);
+	}
+	
+	@GetMapping("movies/sort")
+	public List<Movie> findByTitle(@RequestParam("title")String title) 
+	{
+		return movieService.findByTitle(title);
 	}
 
-	@GetMapping("/workers/maxSal")
-	public List<Object> findMaxSalByDepartment()
-	{
-	 
-		
-		return  workerService.findMaxSalByDepartment();
-		
-	}
-	
-	@GetMapping("/workers/get")
-	public List<Worker> findByFirstName(@RequestParam("firstName")String firstName)
-	{
-		return workerService.findByFirstName(firstName);
-	}*/
-/*
-	@GetMapping("/add")
-	public String addDepartment(Model theModel)
-	{
-		theModel.addAttribute("departments", new com.POJO.Department());
-		return "AddDepartment";
-	}
-	*/
 }

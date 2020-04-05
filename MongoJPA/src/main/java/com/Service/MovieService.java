@@ -17,9 +17,13 @@ public interface MovieService {
 
 	List<Movie> findByTitleLike(String name);
 	
-	List<Movie> findByCountryIn(Collection<String> countries);
+	List<Movie> findByCountriesIn(Collection<String> countries);
 	
 	List <Movie> deleteByTitle(String title);
+	
+	List<Movie> findByTheMoviesTitle(String title);
+	
+	 List<Movie> findByTitle(String title); 
 	//findByAgeBetween(int from, int to)
 	//findByAgeBetween(Range<Integer> range)
 //	public List<Object> findMaxSalByDepartment();

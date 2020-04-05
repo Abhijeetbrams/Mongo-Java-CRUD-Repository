@@ -1,8 +1,11 @@
 package com.POJO;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Document
 public class Critic {
 
     @JsonProperty("_id")

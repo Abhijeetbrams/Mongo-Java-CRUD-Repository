@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "movies")
 public class Movie extends AbstractMovie {
 
-	private String title;
     private int year;
     private List<String> cast;
     private String plog;
@@ -31,13 +30,7 @@ public class Movie extends AbstractMovie {
         super();
     }
 
-    public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
+  
 
 	public int getYear() {
         return year;

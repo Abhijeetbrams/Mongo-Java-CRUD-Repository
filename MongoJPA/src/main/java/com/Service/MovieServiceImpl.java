@@ -31,7 +31,7 @@ public class MovieServiceImpl implements MovieService{
 @Override
 	public List<Movie> findByTitleLike(String name) {
 		List<Movie> result=movieRepo.findByTitleLike(name);
-		System.out.println(movieRepo.findByTitleLike(name));
+		//System.out.println(movieRepo.findByTitleLike(name));
 		return result;
 		
 	}
@@ -44,8 +44,8 @@ public class MovieServiceImpl implements MovieService{
 
 
 	@Override
-	public List<Movie> findByCountryIn(Collection countries) {
-		return  movieRepo.findByCountryIn(countries);
+	public List<Movie> findByCountriesIn(Collection countries) {
+		return  movieRepo.findByCountriesIn(countries);
 	}
 
 
@@ -55,6 +55,23 @@ public class MovieServiceImpl implements MovieService{
 		// TODO Auto-generated method stub
 		return movieRepo.deleteByTitle(title);
 	}
+
+
+
+	@Override
+	public List<Movie> findByTheMoviesTitle(String title) {
+		return movieRepo.findByTheMoviesTitle(title);
+	}
+
+
+
+	@Override
+	public List<Movie> findByTitle(String title) {
+		
+		return  movieRepo.findByTitle(title); 
+	}
+	
+	
 
 	/*@Override
 	
