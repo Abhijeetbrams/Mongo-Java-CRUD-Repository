@@ -3,11 +3,13 @@ package com.Repository;
 import java.util.Collection;
 import java.util.List;
 
+import org.javers.spring.annotation.JaversSpringDataAuditable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import com.POJO.Movie;
 
+@JaversSpringDataAuditable
 public interface MovieRepository extends MongoRepository<Movie, String> {
 
 	

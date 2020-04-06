@@ -3,6 +3,9 @@ package com.POJO;
 import java.util.Date;
 import java.util.List;
 
+import org.joda.time.DateTime;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "movies")
@@ -26,6 +29,11 @@ public class Movie extends AbstractMovie {
 
     private List<Comment> comments;
 
+    @CreatedDate
+    private DateTime createdAt;
+    @LastModifiedDate
+    private DateTime lastModified;
+    
     public Movie() {
         super();
     }
@@ -143,4 +151,30 @@ public class Movie extends AbstractMovie {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+
+
+	public DateTime getCreatedAt() {
+		return createdAt;
+	}
+
+
+
+	public void setCreatedAt(DateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+
+
+	public DateTime getLastModified() {
+		return lastModified;
+	}
+
+
+
+	public void setLastModified(DateTime lastModified) {
+		this.lastModified = lastModified;
+	}
+    
+    
 }
